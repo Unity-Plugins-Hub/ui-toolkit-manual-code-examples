@@ -11,9 +11,6 @@ public class MyCustomEditor : EditorWindow
         wnd.titleContent = new GUIContent("MyCustomEditor");
     }
 
-    [SerializeField]
-    private VisualTreeAsset m_UXMLTree;
-
     private int m_ClickCount = 0;
 
     private const string m_ButtonPrefix = "button";
@@ -41,8 +38,6 @@ public class MyCustomEditor : EditorWindow
         var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editor/MyCustomEditor.uxml");
         VisualElement labelFromUXML = visualTree.Instantiate();
         root.Add(labelFromUXML);
-
-        rootVisualElement.Add(m_UXMLTree.Instantiate());
 
         //Call the event handler
         SetupButtonHandler();
